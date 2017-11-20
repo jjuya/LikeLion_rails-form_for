@@ -286,7 +286,7 @@ AI 빅데이터 분석가 양성 과정
         4) facebook login : https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview
 
 ## Week 3: 
-- day 1 : form-for를 사용한 CRUD
+- day 1 : [form-for를 사용한 CRUD](https://github.com/jjuya/LikeLion_rails-form_for)
   * scaffold 
 
     ```bash
@@ -313,10 +313,7 @@ AI 빅데이터 분석가 양성 과정
 
       def create
         Post.create(
-          title: params[:post][:title],
-          content: params[:post][:content],
-          img_url: params[:post][:img_url],
-          is_active: params[:post][:is_active]
+          Tweet.create(tweet_params)
         )
       end
     ```
@@ -331,4 +328,46 @@ AI 빅데이터 분석가 양성 과정
   ```
 
   - pagenation : gem 'kaminari'(https://github.com/kaminari/kaminari)
+
+  - devise : gem 'devise'(https://github.com/plataformatec/devise
+
+    ```ruby
+    #controller
+    before_action :authenticate_user!, except: [:index, :show]
+    ```
+
+    ````html
+    <!-- view -->
+    <% if user_signed_in? %>
+    	<%= link_to '로그아웃', destroy_user_session_path, method: "delete"%><br>
+    	<%= current_user.email%><br>
+    <% else %>
+    	<%= link_to '로그인', new_user_session_path%>
+    <% end %>
+    <p class="notice"> <%= notice() %></p>
+    <p class="alert"> <%= alert() %></p>
+    ​```
+    ````
+
+  - migration
+    ```bash
+    rails g migration add_user_id_to_tweets user_id:integer
+    ```
+
+  - 파일 업로드 : gem 'carrierwave'(https://github.com/carrierwaveuploader/carrierwave) 
+
+    ```bash
+    rails g uploader photo
+    rails g migration add_img_url_to_tweets img_url:string
+    ```
+
+
+    ```ruby
+    class Tweet < ActiveRecord::Base
+      mount_uploader :img_url, PhotoUploader
+      belongs_to :user
+    end
+    ```
+
+    ​
 

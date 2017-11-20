@@ -1,8 +1,10 @@
 <h1>트위터 목록</h1>
-<%= link_to '글쓰기', new_tweet_path %> <br>
+
 <% @tweets.each do |t| %>
-  제목 : <%= t.title %><br>
-  내용 : <%= t.content %><br>
+  제목 : <%= t.title %> <br>
+  내용 : <%= t.content %> <br>
+  글쓴이 : <%= t.user.nil? ? "blank" : t.user.email %> <br>
+  이미지 : <%= image_tag t.img_url %> <br>
   <%= link_to '보기', "/tweets/#{t.id}" %>
   <hr>
 <% end %>
