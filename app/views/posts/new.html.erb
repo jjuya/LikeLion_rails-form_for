@@ -1,0 +1,34 @@
+<h1> 글쓰기 </h1>
+
+<!-- <%= form_tag(posts_path, method: "post") do %>
+  제목 : <%= text_field_tag :title %> <br>
+  내용 : <%= text_field_tag :content %> <br>
+  파일 : <%= text_field_tag :img_url %> <br>
+  공개 : <%= text_field_tag :is_active %> <br>
+  <%= submit_tag "글쓰기" %>
+<% end %>
+
+<%= form_tag(posts_path, method: "post") do %>
+  제목 : <%= text_field_tag "post[title]" %> <br>
+  내용 : <%= text_field_tag "post[content]" %> <br>
+  파일 : <%= text_field_tag "post[img_url]" %> <br>
+  공개 : <%= text_field_tag "post[is_active]" %> <br>
+  <%= submit_tag "글쓰기" %>
+<% end %> -->
+
+<!-- <%= form_tag(posts_path, method: "post") do %>
+  제목 : <%= text_field :post, :title %> <br>
+  내용 : <%= text_field :post, :content %> <br>
+  파일 : <%= text_field :post, :img_url %> <br>
+  공개 : <%= text_field :post, :is_active %> <br>
+  <%= submit_tag "글쓰기" %>
+<% end %> -->
+
+<!-- form_for : model을 다루는데 특화된 form -->
+<%= form_for(@post) do |f| %>
+  제목 : <%= f.text_field :title %> <br>
+  내용 : <%= f.text_field :content %> <br>
+  파일 : <%= f.text_field :img_url %> <br>
+  공개 : <%= f.text_field :is_active %> <br>
+  <%= f.submit "글쓰기" %>
+<% end %>

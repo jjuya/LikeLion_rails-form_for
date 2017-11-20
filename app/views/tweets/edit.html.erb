@@ -1,0 +1,7 @@
+<h1>트윗 수정</h1>
+
+<%= form_for(@tweet) do |f| %>
+  <%= f.text_field :title, vlaue: "#{@tweet.title}" %> <br>
+  <%= f.text_field :content, vlaue: "#{@tweet.content}" %> <br>
+  <%= f.submit "작성"%>
+<% end %>
