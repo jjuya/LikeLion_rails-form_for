@@ -368,6 +368,7 @@ AI 빅데이터 분석가 양성 과정
       belongs_to :user
     end
     ```
-
-    ​
+- day 3, 4 : [fake-watch](https://github.com/jjuya/LikeLion_rails-fake_wataha) 
+- day 5 :
+   1. [카카오톡 챗봇](https://github.com/jjuya/LikeLion_rails-kakao)
 
